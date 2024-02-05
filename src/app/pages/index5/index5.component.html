@@ -1,0 +1,69 @@
+<!--Navbar Start-->
+<nav class="navbar navbar-expand-lg fixed-top navbar-custom sticky sticky-dark navbar-light" (window:scroll)="windowScroll()" id="navbar">
+  <div class="container">
+    <!-- LOGO -->
+    <a class="logo text-uppercase" href="/">
+      <img src="assets/images/logo-ronyhell.png" class="logo-light" alt="" height="25">
+      <img src="assets/images/logo-black.png" alt="" class="logo-dark" height="25" />
+    </a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" (click)="toggleMenu()">
+      <i class="mdi mdi-menu"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <ul class="navbar-nav ms-auto navbar-center" id="mySidenav">
+        <li class="nav-item" [ngClass]="{'active':currentSection === 'home'}">
+          <a [ngxScrollTo]="'#home'" href="javascript: void(0);" class="nav-link">Inicio</a>
+        </li>
+        <li class="nav-item" [ngClass]="{'active':currentSection === 'services'}">
+          <a [ngxScrollTo]="'#services'" href="javascript: void(0);" class="nav-link">Servicios</a>
+        </li>
+        <li class="nav-item" [ngClass]="{'active':currentSection === 'features'}">
+          <a [ngxScrollTo]="'#features'" href="javascript: void(0);" class="nav-link">Proyectos</a>
+        </li>
+        <li class="nav-item" [ngClass]="{'active':currentSection === 'clients'}">
+          <a [ngxScrollTo]="'#clients'" href="javascript: void(0);" class="nav-link">Clientes</a>
+        </li>
+        <li class="nav-item" [ngClass]="{'active':currentSection === 'pricing'}">
+          <a [ngxScrollTo]="'#pricing'" href="javascript: void(0);" class="nav-link">Plans</a>
+        </li>
+      </ul>
+      <!-- <button class="btn btn-success btn-rounded navbar-btn">Try for Free</button> -->
+
+    </div>
+  </div>
+</nav>
+<!-- Navbar End -->
+<div appScrollspy [spiedTags]="['SECTION']" (sectionChange)="onSectionChange($event)">
+
+  <!-- Hero section Start -->
+  <section class="hero-section-5" id="home" style="background: url(assets/images/background.jpg);">
+    <div class="bg-overlay"></div>
+    <div class="container position-relative">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="hero-wrapper text-center mb-4">
+            <p class="font-16 text-uppercase text-white-50">¿Qué te trae por aquí?</p>
+            <h1 class="hero-title text-white mb-4">Crea lo qué necesites con nosotros somos <span class="text-primary">RonyHell</span></h1>
+
+            <p class="text-white-50">Aquí encontrarás una cuidadosa selección de mis trabajos más destacados, cada uno reflejando mi pasión por el diseño, la tecnología y el desarrollo de soluciones únicas.</p>
+
+            <div class="mt-4">
+              <!-- <a href="javascript: void(0);" class="btn btn-primary mt-2 me-2">Get Started</a> -->
+              <a href="javascript: void(0);" class="btn btn-success mt-2 me-2">Descargar CV</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <!-- end row -->
+    </div>
+    <!-- end container -->
+  </section>
+  <!-- Hero section End -->
+  <app-services></app-services>
+  <app-features></app-features>
+  <app-clients></app-clients>
+  <app-plans></app-plans>
+  <app-footer></app-footer>
+</div>
